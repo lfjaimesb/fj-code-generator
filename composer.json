@@ -1,0 +1,59 @@
+{
+    "name": "lfjaimesb/fj-code-generator",
+    "description": "🔥 Generador de código Laravel con actitud Gen Z - API Resources y Filament Resources automáticos",
+    "keywords": [
+        "laravel",
+        "code-generator",
+        "filament",
+        "api-resources",
+        "artisan-commands",
+        "scaffolding"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "FJaimes",
+            "email": "lfjaimesb@gmail.com",
+            "homepage": "https://fjaimes.com"
+        }
+    ],
+    "require": {
+        "php": "^8.4",
+        "illuminate/database": "^11.0|^12.0",
+        "illuminate/support": "^11.0|^12.0",
+        "illuminate/console": "^11.0|^12.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^10.0",
+        "laravel/pint": "^1.24",
+        "phpunit/phpunit": "^12.3"
+    },
+    "suggest": {
+        "filament/filament": "Required for Filament resource generation (^3.0)"
+    },
+    "autoload": {
+        "psr-4": {
+            "FjCodeGenerator\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "FjCodeGenerator\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
+        "format": "vendor/bin/pint"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "FjCodeGenerator\\Providers\\FjCodeGeneratorServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

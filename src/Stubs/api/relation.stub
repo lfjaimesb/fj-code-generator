@@ -1,0 +1,7 @@
+    /**
+     * @return {{ relationType }}
+    */
+    public function {{ relationName }}(): {{ relationType }}
+    {
+        return $this->{{ relationMethod }}({{ relatedModel }}::class, '{{ foreignKey }}', '{{ ownerKey }}');
+    }

@@ -1,0 +1,85 @@
+<?php
+
+namespace App\Http\Controllers\Api;
+
+use App\Http\Controllers\Controller;
+use App\Traits\HandlesJsonResponse;
+use App\Models\{{ model }};
+use App\Http\Requests\Api\{{ model }}Request;
+use Illuminate\Http\JsonResponse;
+
+class {{ class }} extends Controller
+{
+    use HandlesJsonResponse;
+
+    /**
+     * @return JsonResponse
+     */
+    public function index(): JsonResponse
+    {
+        try {
+            ${{ modelLowerCase }} = {{ model }}::all();
+            return $this->success(${{ modelLowerCase }});
+        } catch (\Exception $e) {
+            return $this->error($e->getMessage());
+        }
+    }
+
+    /**
+     * @param {{ model }}Request $request
+     * @return JsonResponse
+     */
+    public function store({{ model }}Request $request): JsonResponse
+    {
+        try {
+            ${{ modelLowerCase }} = {{ model }}::create($request->all());
+            return $this->success(${{ modelLowerCase }}, '{{ model }} created');
+        } catch (\Exception $e) {
+            return $this->error($e->getMessage());
+        }
+    }
+
+    /**
+     * @param $id
+     * @return JsonResponse
+     */
+    public function show($id): JsonResponse
+    {
+        try {
+            ${{ modelLowerCase }} = {{ model }}::findOrFail($id);
+            return $this->success(${{ modelLowerCase }});
+        } catch (\Exception $e) {
+            return $this->error($e->getMessage());
+        }
+    }
+
+    /**
+     * @param {{ model }}Request $request
+     * @param $id
+     * @return JsonResponse
+     */
+    public function update({{ model }}Request $request, $id): JsonResponse
+    {
+        try {
+            ${{ modelLowerCase }} = {{ model }}::findOrFail($id);
+            ${{ modelLowerCase }}->update($request->all());
+            return $this->success(${{ modelLowerCase }}, '{{ model }} updated');
+        } catch (\Exception $e) {
+            return $this->error($e->getMessage());
+        }
+    }
+
+    /**
+     * @param $id
+     * @return JsonResponse
+     */
+    public function destroy($id): JsonResponse
+    {
+        try {
+            {{ model }}::destroy($id);
+            return $this->success(null, '{{ model }} deleted');
+        } catch (\Exception $e) {
+            return $this->error($e->getMessage());
+        }
+    }
+}
