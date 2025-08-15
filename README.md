@@ -1,8 +1,6 @@
 # 🔥 FJ Code Generator
 
 [![Tests](https://github.com/lfjaimesb/fj-code-generator/workflows/tests/badge.svg)](https://github.com/lfjaimesb/fj-code-generator)
-[![Latest Stable Version](https://poser.pugx.org/lfjaimesb/fj-code-generator/v/stable)](https://packagist.org/packages/lfjaimesb/fj-code-generator)
-[![License](https://poser.pugx.org/lfjaimesb/fj-code-generator/license)](https://packagist.org/packages/lfjaimesb/fj-code-generator)
 
 > ¡El generador de código más chingón para Laravel! 🚀 Con actitud Gen Z y humor mexicano.
 
@@ -21,4 +19,7 @@ Automatiza la creación de API Resources y Filament Resources detectando automá
 ## 📦 Instalación
 
 ```bash
+composer config repositories.fj-code-generator vcs https://github.com/lfjaimesb/fj-code-generator
 composer require lfjaimesb/fj-code-generator --dev
+
+php artisan fj:filament-resource Product
